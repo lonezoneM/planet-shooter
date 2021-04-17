@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/icon.jpg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+				<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <title>Welcome || Planet Shooter</title>
+    <style>
+    				*{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #Home-screen{
+            background: url("img/space.png");
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        				justify-content: center;
+        				flex-direction: column;
+        }
+        
+        #header{
+        				font-size: 1.65rem;
+											padding:10px;
+											color: white;
+											font-family: 'Bree Serif', serif;
+											text-align: center;
+        }
+        
+        #logo{
+        				width: 60px;
+        				height: 60px;
+        				display: block;
+        				border-radius: 5px;
+        				margin: 0px auto;
+        }
+        
+        
+        #menu{
+        				display: flex;
+            align-items: center;
+        				justify-content: center;
+        				width:100vw;
+        				height: 60vh;
+        }
+        
+        #navbar ul{
+        				display:flex;
+        				flex-direction: column;
+        				align-items: center;
+        				justify-content: center;
+        }
+        
+        #navbar ul li{
+        				list-style: none;
+        				font-size:1.3rem;
+        }
+        
+        #navbar ul li a{
+        				color: white;
+											display: block;
+											padding:4px 12px;
+											text-decoration:none;
+											font-weight: bold;
+											font-family: 'Baloo Bhaina 2', serif;
+											text-align: center;
+        }
+        
+        #navbar ul li a:hover{
+        				color:#b5b5b5;
+        }
+    </style>
+</head>
+
+<body>
+				<section id="Home-screen">
+								<div id="header">
+								<img id="logo" src="img/icon.jpg" alt="">
+								<h1>Welcome to The Space</h1>
+								</div>
+								<div id="menu">
+												<nav id="navbar">
+																<ul>
+																				<li><a href="space.html">Start Game</a></li>
+																				<li><a href="#" onclick="about()">About</a></li>
+																				<li><a href="thanks.html">Exit</a></li>
+																</ul>
+												</nav>
+								</div>
+				</section>
+				<script>
+    				function about() {
+    								alert("About this Game:\n\nThis is a basic game, made with pure HTML, CSS and JavaScript.\n\n\nCopyright © www.learntocode.org || All rights reserved!")
+    				}
+    </script>
+</body>
+</html>

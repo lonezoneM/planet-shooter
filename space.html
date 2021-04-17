@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+				
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/icon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+				<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600&display=swap" rel="stylesheet">
+    <title>Shooting Game</title>
+</head>
+
+<body>
+    <section id="main-game">
+        <img id="planet" src="img/p_one.png" alt="">
+        <img id="bullet" src="img/bullet.png" alt="">
+        <img id="ship" src="img/spaceship.png" alt="">
+        <button onclick="fire()" id="btn">Fire</button>
+        <p id="tries">7 tries left</p>
+        <a id="back" href="welcome.html"><b>| |</b></a>
+    </section>
+    <script>
+        var planet = document.getElementById("planet");
+        var bullet = document.getElementById("bullet");
+        var ship = document.getElementById("ship");
+        
+        var trys = 7;
+        var replace = true;
+        var list = ["img/p_one.png", "img/p_two.png", "img/p_three.png", "img/p_four.png", "img/p_five.png"];
+        var mainOut;
+        var audio= new Audio("fired.mp3");
+
+        planet.src = list[0];
+        ship.style.left = String(screen.width / 2 - ship.width / 2) + "px"
+        bullet.style.left = String(screen.width / 2 - bullet.width / 2) + "px"
+        btn.style.left = (screen.width/2 + ship.width) + "px"
+
+        function fire() {
+        				audio.play();
+            bullet.classList.add('fired');
+            btn.disabled = true;
+            mainOut=setTimeout(() => {
+                bullet.classList.remove('fired');
+                btn.disabled = false;
+                audio.pause();
+                audio= new Audio("fired.mp3");
+                trys = trys - 1;
+                tries.innerHTML = (trys) + " tries left";
+                if (trys == 0 && list.length > 0) {
+                    btn.innerHTML = "You Loss";
+                    end();
+                }
+                else if (trys > 0 && list.length == 3) {
+                    planet.style.animationName = "move2"
+                }
+                else if (trys > 0 && list.length <= 2) {
+                    planet.style.animationName = "move3"
+                }
+            }, 2100);
+        }
+
+        setInterval(() => {
+            px = parseInt(window.getComputedStyle(planet, null).getPropertyValue('left'))
+            py = parseInt(window.getComputedStyle(planet, null).getPropertyValue('top'))
+            bx = parseInt(window.getComputedStyle(bullet, null).getPropertyValue('left'))
+            by = parseInt(window.getComputedStyle(bullet, null).getPropertyValue('top'))
+
+            offsetX = (bx - px)
+            offsetY = Math.abs(py - by)
+            range1 = (planet.width - 5)
+
+
+            if (offsetX < range1 && offsetX > 0 && offsetY < range1) {
+
+                if (replace) {
+                    if (trys > 0 && list.length > 1) {
+                        list.splice(0, 1);
+                        //console.log(list.length)
+                        planet.src = list[0];
+                        replace = false;
+                    }else{
+                    				list.splice(0, 1);
+                        btn.innerHTML = "You Win";
+                        end();
+                    }
+
+                }
+                setTimeout(() => {
+                    replace = true
+                }, 1000);
+            }
+        }, 100);
+
+        function end() {
+            btn.disabled = true;
+            planet.style.zIndex = "-1"
+            clearTimeout(mainOut)
+        }
+
+    </script>
+</body>
+
+</html>

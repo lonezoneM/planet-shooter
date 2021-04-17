@@ -1,0 +1,125 @@
+*{
+				padding: 0px;
+				margin: 0px;
+}
+
+#main-game {
+				background: url("img/space.png");
+				width: 100vw;
+				height: 100vh;
+}
+
+#planet {
+				width: 25vw;
+				height: 25vw;
+				position: absolute;
+				top: 20px;
+				left: 0px;
+				animation: move1 2s linear alternate infinite;
+				transform: scale(1);
+}
+
+#ship {
+				width: 70px;
+				height: 100px;
+				position: absolute;
+				bottom: 50px;
+}
+
+#bullet {
+				height: 55px;
+				position: absolute;
+				bottom: 70px;
+				transform: scale(1);
+}
+
+#btn {
+				background: rgb(238, 110, 6);
+				color: white;
+				padding: 8px 16px;
+				border-radius: 5px;
+				border: none;font-weight: bolder;
+				position: absolute;
+				bottom: 90px;
+				font-size: 0.88rem;
+}
+
+#btn:disabled {
+				color: black;
+}
+
+#tries {
+				font-size: 1rem;
+				color: white;
+				position: absolute;
+				font-weight: bold;
+				right: 10px;
+				font-family: 'Baloo Bhaina 2', sans-serif;
+}
+        
+#back {
+				font-size: 1rem;
+				color: white;
+				position: absolute;
+				font-weight: bolder;
+				left: 13px;
+				text-decoration: none;
+				font-family: 'Baloo Bhaina 2', sans-serif;
+				padding:0px;
+}
+
+.fired {
+				animation: active 2s linear;
+}
+        
+/* Animation key-frames */
+
+@keyframes active {
+				0% {
+								bottom: 140px;
+				}
+				100% {
+								bottom: 90vh;
+     }
+}
+            
+
+@keyframes move1 {
+				0% {
+								left: 0px;
+     }
+				100% {
+     				left: 75vw;
+     }
+}            
+
+@keyframes move2 {
+				0% {
+								left: 0px;
+								width: 25vw;
+         height: 25vw;
+				}
+				100% {
+     				left: 90vw;
+         width: 10vw;
+         height: 10vw;
+     }
+}
+
+@keyframes move3 {
+				0% {
+								left: 0px;
+         width: 10vw;
+         height: 10vw;
+     }
+				50% {
+								left: 34vw;
+         width: 25vw;
+         height: 25vw;
+     }
+				100% {
+								left: 90vw;
+         width: 10vw;
+         height: 10vw;
+     }
+}
