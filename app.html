@@ -12,6 +12,10 @@
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;900&display=swap" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="play.css"/>
+    <!--Firebase Libraries-->
+	<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
     <title>Google Play Store</title>
   </head>
   <body>
@@ -79,6 +83,13 @@
     <script src="../../Portfolio Website/bootstrap.bundle.min.js"></script>
     <script src="data.js"></script>
     <script src="index.js"></script>
+    <script>
+        firebase.database().ref("Registry").on('value', (a)=>{
+            let tapp=a.val().capp;
+            console.log(tapp);
+            setAll(tapp);
+        })
+    </script>
     <!--script>setAll("PyTerminal")</script-->
     
     <!-- Option 2: Separate Popper and Bootstrap JS -->
