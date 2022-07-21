@@ -19,14 +19,14 @@
         <img id="ship" src="img/spaceship.png" alt="">
         <button onclick="fire()" id="btn">Fire</button>
         <p id="tries">7 tries left</p>
-        <a id="back" href="welcome.html"><b>| |</b></a>
+        <a id="back" href="index.html"><b>| |</b></a>
     </section>
     <script>
         var planet = document.getElementById("planet");
         var bullet = document.getElementById("bullet");
         var ship = document.getElementById("ship");
         
-        var trys = 7;
+        var trys = 10;
         var replace = true;
         var list = ["img/p_one.png", "img/p_two.png", "img/p_three.png", "img/p_four.png", "img/p_five.png"];
         var mainOut;
@@ -49,7 +49,7 @@
                 trys = trys - 1;
                 tries.innerHTML = (trys) + " tries left";
                 if (trys == 0 && list.length > 0) {
-                    btn.innerHTML = "You Loss";
+                    btn.innerHTML = "Heh?! What's this? You Lost";
                     end();
                 }
                 else if (trys > 0 && list.length == 3) {
@@ -82,7 +82,7 @@
                         replace = false;
                     }else{
                     				list.splice(0, 1);
-                        btn.innerHTML = "You Win";
+                        btn.innerHTML = "Yo, You Won";
                         end();
                     }
 
